@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
-import { loading } from '@angular-preload/utils'
+// import { loading } from '@angular-preload/utils'
+import { DataService } from '@angular-preload/data'
 
 @Component({
   selector: 'angular-preload-pets',
@@ -10,9 +11,9 @@ import { loading } from '@angular-preload/utils'
 })
 export class PetsComponent implements OnInit {
 
-  @Input() obs$: Observable;
+  // @Input() obs$: Observable;
 
-  constructor() { }
+  constructor(private petData: DataService) { }
 
   // dogs are quick to load
   dogs$ = of(1).pipe(delay(1000));
@@ -25,6 +26,7 @@ export class PetsComponent implements OnInit {
     delay(this.randomDelay(1000, 5000))
   );
 
+  pets$ = this.petData.getPets();
   ngOnInit(): void {}
 
   private randomDelay(bottom, top) {

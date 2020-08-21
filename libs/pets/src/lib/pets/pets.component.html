@@ -1,4 +1,4 @@
-<div *ngIf="obs$ | loading | async as obs">
+<!-- <div *ngIf="obs$ | loading | async as obs">
   <ng-template [ngIf]="obs.value">
     Value: {{ obs.value }}
   </ng-template>
@@ -8,4 +8,7 @@
   <ng-template [ngIf]="obs.error">
     Error: {{ obs.error }}
   </ng-template>
+</div> -->
+<div >
+    Value: {{ pets$ | async }}
 </div>
