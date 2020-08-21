@@ -26,7 +26,7 @@ const cats = [
 ];
 
 app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });b
+  res.send({ message: 'Welcome to api!' });
 });
 
 app.get('/api/dog/:id', (req, res) => {
